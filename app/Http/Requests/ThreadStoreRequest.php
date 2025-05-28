@@ -26,10 +26,10 @@ class ThreadStoreRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:60', 'min:5'],
-            'body' => ['required', 'max:300', 'min:5'], 
-            'category' => ['required'], 
-            'tags' => ['array'],
-            'tags.*' => ['exists:tags,id']
+            'body' => ['required', 'max:300', 'min:5'],
+            'category' => ['required'],
+            'tags' => ['nullable', 'array'],
+            'tags.*' => ['nullable', 'exists:tags,id']
         ];
     }
 
@@ -48,7 +48,7 @@ class ThreadStoreRequest extends FormRequest
     public function category(): string {
         return $this->get('category');
     }
-    
+
     public function tags(): array {
         return $this->get('tags');
     }
