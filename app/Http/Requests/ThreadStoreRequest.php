@@ -50,6 +50,6 @@ class ThreadStoreRequest extends FormRequest
     }
 
     public function tags(): array {
-        return $this->get('tags');
+        return $this->get('tags', []);
     }
 }
